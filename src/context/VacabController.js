@@ -38,8 +38,8 @@ const VocabController = () => {
     }
 
 
-    const deleteVocab = (index) => {
-        col.doc(vocabs[index].word).delete();
+    const deleteVocab = (word) => {
+     return col.doc(word).delete();
         
     }
 

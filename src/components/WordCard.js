@@ -32,6 +32,7 @@ const WordCard = (props) => {
 ) : "";
     return (
         <StyledWrapper>
+            
             <div className='top'>
 
                 <div>
