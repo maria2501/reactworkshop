@@ -1,6 +1,6 @@
 import React, { useContext,useState } from 'react'
 import styled from 'styled-components';
-import { Input, Select, Button } from 'antd';
+import { Input, Select, Button, notification } from 'antd';
 import AppContext from '../context/AppContext';
 
 const StyedWrapper = styled.div`
@@ -27,7 +27,8 @@ const typeOptions = [
 
 const AddWordPage = () => {
     
-  const {vocabs, setVocabs} = useContext(AppContext);
+    const {vocabController} = useContext(AppContext);
+    const { addVocab} = vocabController;
 
 
     const [word, setWord] = useState('');
@@ -36,11 +37,11 @@ const AddWordPage = () => {
 
 
     const handleClick = () => {
-        setVocabs([...vocabs, {
-            word,
-            types,
-            meanings: meanings.split(",").map((item) => item.trim())
-        }])
+        addVocab(word,types,meanings);
+        notification['success']({
+            message: 'Success',
+            description: 'Add word successful'
+        })
     }
 
     return (

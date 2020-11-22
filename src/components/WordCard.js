@@ -21,6 +21,15 @@ const StyledWrapper = styled.div`
 
 
 const WordCard = (props) => {
+
+    const formatDate =props.createdAt ? props.createdAt.toLocaleDateString('th-Th',
+        {day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'}
+) : "";
     return (
         <StyledWrapper>
             <div className='top'>
@@ -33,6 +42,10 @@ const WordCard = (props) => {
 
             </div>
             <div>{props.meanings.join(",")}</div>
+
+            <div>
+                Date:{formatDate}
+            </div>
 
         </StyledWrapper>
     )
